@@ -12,8 +12,7 @@ type props = {
 };
 
 export default async function PaginaNoticia({ params }: props) {
-  const { id } = await params;
-  const noticia = await prisma.noticia.findUnique({where:{id}});
+  const noticia = await prisma.noticia.findUnique({where:{id: params.id}});
 
   if(!noticia){
     redirect('/');
